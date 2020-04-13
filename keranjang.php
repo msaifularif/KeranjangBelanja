@@ -22,7 +22,7 @@
 	if (count($_SESSION['cart_items'])>0) {
 		//mendapatkan id produk
 		$ids= "";
-		foreach ($_SESSION['cart_items'] as $id=>$value) {
+		foreach($_SESSION['cart_items'] as $id=>$value) {
 			$ids = $ids . $id . ",";
 		}
 
@@ -39,7 +39,7 @@
 		echo "<th> Action </th>";
 		echo "</tr>";
 
-		$query = "SELECT id, nama, harga FROM produk WHERE id IN {{$ids}} ORDER BY nama";
+		$query = "SELECT id, nama, harga FROM produk WHERE id IN ({$ids}) ORDER BY nama";
 		$stmt = $kon->prepare($query);
 		$stmt->execute();
 
@@ -50,7 +50,7 @@
 			echo "<tr>";
 			echo "<td>{$nama}</td>";
 			echo "<td>&#36;{$harga}</td>";
-			echo "</td>";
+			echo "<td>";
 			echo "<a href='hapus.php?id={$id}&nama={$nama}' class='btn btn-danger'>";
 			echo "<span class='glyphicon glyphicon-remove'></span> Keluarkan dari keranjang!";
 			echo "</a>";
@@ -62,7 +62,7 @@
 			echo "<tr>";
 			echo "<td><b>Total</b></td>";
 			echo "<td>&#36;{$total_harga}</td>";
-			echo "</td>";
+			echo "<td>";
 			echo "<a href='#' class='btn btn-success'>";
 			echo "<span class='glyphicon glyphicon-shopping-cart'></span> Bayar";
 			echo "</a>";

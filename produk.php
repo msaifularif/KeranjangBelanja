@@ -13,12 +13,12 @@
 
 	if ($action=='added') {
 		echo "<div class='alert alert-info'>";
-		echo "<strong>{$nama)</strong> telah ditambahkan dalam keranjang!";
+		echo "<strong>{$nama}</strong> telah ditambahkan dalam keranjang!";
 		echo "</div>";
 	}
 	if ($action=='exists') {
 		echo "<div class='alert alert-info'>";
-		echo "<strong>{$nama)</strong> sudah ada dalam keranjang!";
+		echo "<strong>{$nama}</strong> sudah ada dalam keranjang!";
 		echo "</div>";
 	}
 
